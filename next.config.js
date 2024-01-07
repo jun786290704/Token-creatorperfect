@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  distDir: "dist",
-  output: 'export',
+  reactStrictMode: true,
+}
+
+module.exports = {
+  nextConfig,
   webpack(config) {
     config.resolve.fallback = {
-      net: false,
-      tls: false,
       fs: false,
       path: false,
       constants: false,
@@ -14,16 +15,8 @@ const nextConfig = {
       https: require.resolve('https-browserify'),
       crypto: require.resolve('crypto-browserify'),
       querystring: require.resolve('querystring-es3'),
-      zlib: require.resolve('browserify-zlib'),
+      zlib: require.resolve('browserify-zlib')
     }
     return config;
   },
-  images: {
-    unoptimized: true
-  }
-}
-
-module.exports = nextConfig
-
-
-
+};
