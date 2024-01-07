@@ -14,12 +14,13 @@ import { clusterApiUrl } from '@solana/web3.js';
 import { FC, ReactNode, useCallback, useMemo } from 'react';
 import { AutoConnectProvider, useAutoConnect } from './AutoConnectProvider';
 import { notify } from "../utils/notifications";
+import { mainNetProvider } from '../constants';
 
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
     const { autoConnect } = useAutoConnect();
     const network = WalletAdapterNetwork.Mainnet;
     // const endpoint = useMemo(() => clusterApiUrl(network), [network]);
-    const endpoint = "https://skilled-withered-valley.solana-mainnet.quiknode.pro/e4bf9a06b4815a3d3c12ff2707da9f3a07003b02/";
+    const endpoint = mainNetProvider;
 
     console.log("endpoint", endpoint);
 

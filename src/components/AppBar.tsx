@@ -1,18 +1,25 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Link from 'next/link';
-
+import { useRouter } from 'next/router'
 import { WalletMultiButton } from '@solana/wallet-adapter-react-ui';
 import { useAutoConnect } from '../contexts/AutoConnectProvider';
+import { Drawer, List, ListItem } from "@material-tailwind/react";
 
 export const AppBar: FC = (props) => {
   const { autoConnect, setAutoConnect } = useAutoConnect();
+  const openNav = () => {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
 
+  const closeNav = () => {
+    document.getElementById("mySidenav").style.width = "0";
+  }
   return (
     <div>
       {/* NavBar / Header */}
-      <div className="navbar flex flex-row md:mb-2 shadow-lg bg-neutral text-neutral-content">
+      <div className="navbar flex flex-row md:mb-2 shadow-lg bg-neutral text-neutral-content justify-between px-4">
         <div className="navbar-start">
-          <div className="hidden sm:inline w-22 h-22 md:p-2">
+          <div className="w-22 h-22 md:p-2">
             <svg
               width="100%"
               height="22"
@@ -74,8 +81,9 @@ export const AppBar: FC = (props) => {
           </div>
         </div>
 
+
         {/* Wallet & Settings */}
-        <div className="navbar-end">
+        <div className="navbar-end hidden lg:flex">
           <Link href="/">
             <a className="mr-8">Token Creator</a>
           </Link>
@@ -84,9 +92,6 @@ export const AppBar: FC = (props) => {
           </Link>
           <Link href="/uploader">
             <a className="mr-8">Upload Metadata</a>
-          </Link>
-          <Link href="/metadata">
-            <a className="mr-4">Token Metadata</a>
           </Link>
           <div className="dropdown">
             <div tabIndex={0} className="btn btn-square btn-ghost text-right">
@@ -132,7 +137,26 @@ export const AppBar: FC = (props) => {
           </div>
           <WalletMultiButton className="btn btn-ghost mr-4" />
         </div>
+
+        <div id="mySidenav" className="sidenav">
+          <a href="javascript:void(0)" className="closebtn" onClick={closeNav}>&times;</a>
+          <Link href="/">
+            <a className="ml-1">Token Creator</a>
+          </Link>
+          <Link href="/update">
+            <a className="ml-1">Update Metadata</a>
+          </Link>
+          <Link href="/uploader">
+            <a className="ml-1">Upload Metadata</a>
+          </Link>
+          <WalletMultiButton className="btn btn-ghost mr-4" />
+        </div>
+
+        <span className='pointer text-2xl  flex lg:hidden' onClick={openNav}>&#9776;</span>
+
       </div>
+
+
       {props.children}
     </div>
   );

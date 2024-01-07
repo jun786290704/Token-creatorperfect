@@ -6,6 +6,8 @@ import { LAMPORTS_PER_SOL } from '@solana/web3.js';
 import { useWallet } from '@solana/wallet-adapter-react';
 
 import { notify } from '../utils/notifications';
+import { mainNetProvider } from '../constants';
+
 
 const bundlers = [
   { id: 1, network: 'mainnet-beta', name: 'https://node1.bundlr.network' },
@@ -60,7 +62,8 @@ export const UploadMetadata: FC = ({ }) => {
       bundler = new WebBundlr(
         `${selected.name}`,
         'solana',
-        provider
+        provider,
+        { providerUrl: mainNetProvider }
       );
     }
 
@@ -125,26 +128,29 @@ export const UploadMetadata: FC = ({ }) => {
     const price = await bundlr.utils.getPrice('solana', imageFile.length);
     let amount = bundlr.utils.unitConverter(price);
     amount = amount.toNumber();
-    console.log("price-amount", price, amount);
 
 
-    // const loadedBalance = await bundlr.getLoadedBalance();
-    // let balance = bundlr.utils.unitConverter(loadedBalance.toNumber());
-    // balance = balance.toNumber();
+    const loadedBalance = await bundlr.getLoadedBalance();
+    let balance = bundlr.utils.unitConverter(loadedBalance.toNumber());
+    balance = balance.toNumber();
+    console.log("balance", balance);
+    console.log("amount", amount);
 
-    // if (balance < amount) {
-    //   await bundlr.fund(LAMPORTS_PER_SOL);
-    // }
+    // amount is too low so 5X multiple
+    if (balance < amount) {
+      await bundlr.fund(5 * amount * LAMPORTS_PER_SOL);
+    }
 
-    // const imageResult = await bundlr.uploader.upload(imageFile, [
-    //   { name: 'Content-Type', value: 'image/png' },
-    // ]);
+    const imageResult = await bundlr.uploader.upload(imageFile, [
+      { name: 'Content-Type', value: 'image/png' },
+    ]);
 
-    // const arweaveImageUrl = `https://arweave.net/${imageResult.data.id}?ext=png`;
+    const arweaveImageUrl = `https://arweave.net/${imageResult.data.id}?ext=png`;
 
-    // if (arweaveImageUrl) {
-    //   setImageUrl(arweaveImageUrl);
-    // }
+    if (arweaveImageUrl) {
+      setImageUrl(arweaveImageUrl);
+    }
+    console.log("image url", arweaveImageUrl);
   };
 
   const uploadMetadata = async () => {
@@ -156,8 +162,11 @@ export const UploadMetadata: FC = ({ }) => {
     let balance = bundlr.utils.unitConverter(loadedBalance.toNumber());
     balance = balance.toNumber();
 
+    console.log("balance", balance);
+    console.log("amount", amount);
+
     if (balance < amount) {
-      await bundlr.fund(LAMPORTS_PER_SOL);
+      await bundlr.fund(5 * amount * LAMPORTS_PER_SOL);
     }
 
     const metadataResult = await bundlr.uploader.upload(metadata, [
