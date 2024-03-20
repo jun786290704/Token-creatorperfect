@@ -255,7 +255,7 @@ export const UploadMetadata: FC = ({ }) => {
               <button
                 className='items-center px-3 py-2 text-xs btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ...'
                 onClick={async () => await initializeBundlr()}>
-                Connect
+                点击连接
               </button>
             </div>
           </div>
