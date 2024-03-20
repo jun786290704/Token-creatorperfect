@@ -63,25 +63,25 @@ export const UpdateMetadata: FC = () => {
       <input
         type="text"
         className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Token Mint Address"
+        placeholder="令牌地址"
         onChange={(e) => setTokenMint(e.target.value)}
       />
       <input
         type="text"
         className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Token Name"
+        placeholder="令牌名字"
         onChange={(e) => setTokenName(e.target.value)}
       />
       <input
         type="text"
         className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Symbol"
+        placeholder="小写令牌名字"
         onChange={(e) => setSymbol(e.target.value)}
       />
       <input
         type="text"
         className="form-control block mb-2 w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-        placeholder="Metadata Url"
+        placeholder="元数据地址"
         onChange={(e) => setMetadata(e.target.value)}
       />
       <button
@@ -95,7 +95,7 @@ export const UpdateMetadata: FC = () => {
           })
         }
       >
-        <span>Update Metadata</span>
+        <span>更新元数据</span>
       </button>
     </div>
   );
