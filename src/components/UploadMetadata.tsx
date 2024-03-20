@@ -184,11 +184,10 @@ export const UploadMetadata: FC = ({ }) => {
           <div className='md:col-span-1'>
             <div className='px-4 sm:px-0'>
               <h3 className='text-lg font-medium leading-6 text-gray-900'>
-                Bundler
+                打包机
               </h3>
               <p className='mt-1 text-sm text-gray-600'>
-                This is the bundler you will be using to upload your files
-                to Arweave.
+                这是您将用于将文件上传到Arweave的捆扎机。
               </p>
             </div>
           </div>
@@ -273,10 +272,9 @@ export const UploadMetadata: FC = ({ }) => {
                 Image URL
               </h3>
               <p className='mt-1 text-sm text-gray-600'>
-                The Arweave URL for your stored image. Set this as the{' '}
+                存储图像的Arweave URL。将此设置为{' '}
                 <code className='text-purple-500 bg-purple-100'>image</code> and{' '}
-                <code className='text-purple-500 bg-purple-100'>uri</code> values in your
-                metadata file.
+                <code className='text-purple-500 bg-purple-100'>uri</code> 元数据文件中的值。
               </p>
             </div>
           </div>
@@ -302,7 +300,7 @@ export const UploadMetadata: FC = ({ }) => {
                       <label
                         htmlFor='image-upload'
                         className='relative cursor-pointer bg-white rounded-md font-medium text-purple-500 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500'>
-                        <span>Upload an image</span>
+                        <span>上传图像</span>
                         <input
                           id='image-upload'
                           name='image-upload'
@@ -349,11 +347,10 @@ export const UploadMetadata: FC = ({ }) => {
           <div className='md:col-span-1'>
             <div className='px-4 sm:px-0'>
               <h3 className='text-lg font-medium leading-6 text-gray-900'>
-                Metadata URL
+                元数据地址
               </h3>
               <p className='mt-1 text-sm text-gray-600'>
-                The Arweave URL where your metadata is saved. You will use this
-                to create your token.
+                保存元数据的Arweave URL地址。您将使用它来创建您的令牌。
               </p>
             </div>
           </div>
@@ -379,7 +376,7 @@ export const UploadMetadata: FC = ({ }) => {
                       <label
                         htmlFor='file-upload'
                         className='relative cursor-pointer bg-white rounded-md font-medium text-purple-500 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500'>
-                        <span>Upload a file</span>
+                        <span>上传文件</span>
                         <input
                           id='file-upload'
                           name='file-upload'
@@ -411,7 +408,7 @@ export const UploadMetadata: FC = ({ }) => {
                   className='items-center px-3 py-2 text-xs btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ...'
                   onClick={async () => uploadMetadata()}
                   disabled={!bundlr}>
-                  Upload Metadata
+                  上传元数据
                 </button>
               )}
             </div>
