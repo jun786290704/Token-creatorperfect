@@ -269,7 +269,7 @@ export const UploadMetadata: FC = ({ }) => {
           <div className='md:col-span-1'>
             <div className='px-4 sm:px-0'>
               <h3 className='text-lg font-medium leading-6 text-gray-900'>
-                Image URL
+                头像链接
               </h3>
               <p className='mt-1 text-sm text-gray-600'>
                 存储图像的Arweave URL。将此设置为{' '}
@@ -309,7 +309,7 @@ export const UploadMetadata: FC = ({ }) => {
                           onChange={handleImageChange}
                         />
                       </label>
-                      <p className='pl-1'>or drag and drop</p>
+                      <p className='pl-1'>拖放</p>
                     </div>
                     {!selectedImage ? null : (
                       <p className='text-sm text-gray-500'>{selectedImage}</p>
@@ -332,7 +332,7 @@ export const UploadMetadata: FC = ({ }) => {
                   className='px-8 m-2 btn animate-pulse bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ...'
                   onClick={async () => uploadImage()}
                   disabled={!bundlr}>
-                  Upload Image
+                  上传头像
                 </button>
               )}
             </div>
@@ -385,7 +385,7 @@ export const UploadMetadata: FC = ({ }) => {
                           onChange={handleMetadataChange}
                         />
                       </label>
-                      <p className='pl-1'>or drag and drop</p>
+                      <p className='pl-1'>拖放</p>
                     </div>
                     {!selectedFile ? null : (
                       <p className='text-sm text-gray-500'>{selectedFile}</p>
